@@ -80,3 +80,16 @@ Otros comandos: `safety`, `verificar`, `contactos`, `historial`, `rotar`, `acept
 * Metadatos (quién, a quién, cuándo, contador) visibles para el servidor.
 * El canal es simulado (JSON en proceso); en una red real iría sobre TLS/WSS.
 * Pendiente para E3–E7: scripts de ataque completos (E5), Docker, informe y video.
+
+## Qué cumple del documento
+| Requisito del diseño | Estado |
+| ChaCha20-Poly1305 con contador, emisor/receptor e identidades en el AD	| Cumple |
+| X25519 con X3DH (DH1‖DH2‖DH3) y HKDF	| Cumple |
+| Argon2id con 64 MiB, t=3, p=4 y sal de 128 bits	| Cumple |
+| Ed25519 firma la signed prekey y la verificación es obligatoria antes del DH	| Cumple (firma además usuario e IK, lo cual es más fuerte) |
+| Safety numbers de 60 dígitos con SHA-256 y alerta si cambia la identidad	| Cumple |
+| Ratchet simétrico con HMAC-SHA256	| Cumple |
+| Anti-replay por contador y sesión	| Cumple |
+| El servidor solo guarda públicas, hashes, SHA-256 del token y texto cifrado	| Cumple |
+| Hito 2: registro, Argon2id y cifrado E2E en consola	| Cumple |
+
